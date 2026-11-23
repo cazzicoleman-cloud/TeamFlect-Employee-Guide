@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeamFlect Employee Guide | ITDP HR Hub</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif; background: #f4f9f8; color: #1f1f1f; font-size: 15px; line-height: 1.65; }
+    a { color: #0E6E62; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .hero { background: linear-gradient(135deg, #0a4a42 0%, #0E6E62 60%, #3fb8a6 100%); padding: 52px 48px 44px; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; left: 0; bottom: 0; right: 0; height: 4px; background: linear-gradient(90deg, #d9b44a, #3fb8a6, #ffffff); }
+    .hero-inner { position: relative; z-index: 1; max-width: 800px; }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #d9f0ec; margin-bottom: 10px; }
+    .hero h1 { font-size: 34px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 14px; }
+    .hero p { font-size: 15px; color: rgba(255,255,255,.88); max-width: 640px; margin-bottom: 20px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 20px; font-size: 12px; color: rgba(255,255,255,.7); }
+    .page-layout { display: flex; max-width: 1280px; margin: 0 auto; padding: 36px 24px 80px; align-items: flex-start; gap: 28px; }
+    .page-nav { width: 220px; min-width: 220px; position: sticky; top: 24px; background: #fff; border: 1px solid #d8e6e3; border-radius: 3px; overflow: hidden; }
+    .page-nav .nav-header { background: #0E6E62; padding: 10px 16px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.9); }
+    .page-nav ul { list-style: none; }
+    .page-nav ul li a { display: block; padding: 9px 16px; font-size: 13px; color: #333; border-left: 3px solid transparent; }
+    .page-nav ul li a:hover { background: #e7f5f2; border-left-color: #3fb8a6; color: #0a4a42; text-decoration: none; }
+    .page-nav ul li + li { border-top: 1px solid #f0f4f3; }
+    .page-content { flex: 1; min-width: 0; }
+    .section { background: #fff; border: 1px solid #d8e6e3; border-radius: 3px; margin-bottom: 20px; overflow: hidden; scroll-margin-top: 24px; }
+    .section-head { padding: 20px 28px 16px; border-bottom: 1px solid #e6eeec; display: flex; align-items: flex-start; gap: 14px; }
+    .section-icon { width: 40px; height: 40px; border-radius: 50%; background: #e7f5f2; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; border: 1px solid #c6e6df; }
+    .section-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #6b7d79; margin-bottom: 2px; }
+    .section-head h2 { font-size: 19px; font-weight: 700; }
+    .section-body { padding: 22px 28px; }
+    .sub-head { font-size: 15px; font-weight: 700; color: #0a4a42; margin: 20px 0 8px; padding-bottom: 5px; border-bottom: 2px solid #c6e6df; }
+    .sub-head:first-child { margin-top: 0; }
+    .body-text { font-size: 14px; color: #333; line-height: 1.7; margin-bottom: 10px; }
+    .path { font-weight: 600; color: #0a4a42; font-style: italic; }
+    .steps { list-style: none; padding: 0; }
+    .steps li { display: flex; gap: 14px; padding: 9px 0; border-bottom: 1px solid #eef3f2; font-size: 14px; align-items: flex-start; }
+    .steps li:last-child { border-bottom: none; }
+    .steps .num { background: #0E6E62; color: #fff; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 8px 0 16px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 8px 0 16px; }
+    @media (max-width: 720px) { .three-col, .two-col { grid-template-columns: 1fr; } }
+    .card { background: #f4f9f8; border: 1px solid #e0ebe8; border-radius: 3px; padding: 18px; border-top: 3px solid #0E6E62; }
+    .card h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: #0a4a42; }
+    .card p { font-size: 13.5px; color: #444; }
+    .callout { border-radius: 3px; padding: 14px 18px; margin: 14px 0; display: flex; gap: 12px; align-items: flex-start; }
+    .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .callout-body { flex: 1; }
+    .callout-body strong { display: block; margin-bottom: 4px; font-size: 14px; }
+    .callout-body p { font-size: 13.5px; }
+    .callout-warning { background: #fff6e6; border-left: 4px solid #e8a020; }
+    .callout-warning .callout-body strong { color: #9a6b00; }
+    .callout-info { background: #e7f5f2; border-left: 4px solid #0E6E62; }
+    .callout-info .callout-body strong { color: #0a4a42; }
+    .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 20px; vertical-align: middle; margin-left: 6px; }
+    .tag-pending { background: #fff6e6; color: #9a6b00; border: 1px solid #f1d9a6; }
+    .table-wrap { overflow-x: auto; }
+    .sp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 12px 0; }
+    .sp-table th { background: #0E6E62; padding: 10px 14px; text-align: left; font-weight: 700; color: #fff; border-bottom: 2px solid #0a4a42; }
+    .sp-table td { padding: 10px 14px; border-bottom: 1px solid #eef3f2; vertical-align: top; }
+    .sp-table tr:last-child td { border-bottom: none; }
+    .plain-list { list-style: none; padding: 0; }
+    .plain-list li { font-size: 13.5px; color: #333; padding: 4px 0 4px 16px; position: relative; }
+    .plain-list li::before { content: '›'; position: absolute; left: 0; color: #0E6E62; font-weight: 700; }
+    .source-line { font-size: 12.5px; color: #6b7d79; margin-top: 14px; }
+    .shot { margin: 16px 0 22px; border: 1px solid #d8e6e3; border-radius: 4px; overflow: hidden; background: #fff; }
+    .shot img { display: block; width: 100%; height: auto; }
+    .shot figcaption { font-size: 12.5px; color: #555; padding: 8px 12px; background: #f4f9f8; border-top: 1px solid #e0ebe8; }
+    .video-placeholder { max-width: 640px; margin: 16px 0 20px; border: 2px dashed #0E6E62; border-radius: 10px; background: #e7f5f2; padding: 28px 24px; text-align: center; }
+    .video-placeholder .vp-icon { font-size: 34px; line-height: 1; }
+    .video-placeholder .vp-title { font-weight: 700; color: #0a4a42; margin: 10px 0 6px; font-size: 15px; }
+    .video-placeholder .vp-file { font-family: Consolas, Menlo, monospace; font-size: 12px; color: #333; background: #fff; display: inline-block; padding: 3px 8px; border-radius: 3px; border: 1px solid #c6e6df; }
+    .video-placeholder .vp-note { font-size: 12.5px; color: #555; margin-top: 8px; }
+    .vp-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #9a6b00; background: #fff6e6; border: 1px solid #f1d9a6; display: inline-block; padding: 2px 8px; border-radius: 20px; margin-top: 10px; }
+    .img-placeholder { background: #f1f5f4; border: 2px dashed #9fbdb7; border-radius: 3px; min-height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 14px; margin: 16px 0 22px; color: #555; font-size: 13px; }
+    .img-placeholder .ip-icon { font-size: 22px; opacity: .7; }
+    .img-placeholder .vp-file { font-family: Consolas, Menlo, monospace; font-size: 11.5px; margin-top: 6px; color: #333; }
+    .page-footer { background: #0E6E62; color: rgba(255,255,255,.8); padding: 20px 48px; font-size: 12px; text-align: center; }
+    @media (max-width: 860px) {
+      .page-layout { flex-direction: column; }
+      .page-nav { position: static; width: 100%; min-width: 0; }
+      .hero { padding: 40px 24px 36px; }
+      .section-body, .section-head { padding-left: 18px; padding-right: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Employee Guide</div>
+    <h1>Getting Started with TeamFlect</h1>
+    <p>TeamFlect is where ITDP tracks goals, holds 1:1s, and runs performance reviews. This guide covers what it is for, how to sign in, how to find your way around, how to set your language, and where to get help.</p>
+    <div class="hero-meta">
+      <span>Last updated: November 2026</span>
+      <span>Audience: ITDP employees</span>
+    </div>
+  </div>
+</div>
+
+<div class="page-layout">
+  <nav class="page-nav">
+    <div class="nav-header">On This Page</div>
+    <ul>
+      <li><a href="#intro">Welcome to TeamFlect</a></li>
+      <li><a href="#getstarted">Getting started</a></li>
+      <li><a href="#navsystem">Navigating the TeamFlect System</a></li>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#oneonones">Meetings and 1:1s</a></li>
+      <li><a href="#help">Get Help</a></li>
+      <li><a href="#resources">Resources</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-content">
+
+    <div class="section" id="intro">
+      <div class="section-head">
+        <div class="section-icon">🧭</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow">Section 1</div>
+          <h2>Welcome to TeamFlect</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <figure class="shot">
+          <video controls preload="metadata" style="width:100%;border-radius:8px;" src="teamflect-overview.mp4"></video>
+          <figcaption>Welcome to TeamFlect: an overview of the platform.</figcaption>
+        </figure>
+        <p class="body-text">TeamFlect is the system ITDP uses for goals, one-on-one meetings, and annual performance reviews. It also includes surveys and recognitions, but ITDP does not use those, so this guide does not cover them.</p>
+        <div class="sub-head">What we use TeamFlect for</div>
+        <div class="three-col">
+          <div class="card">
+            <h4>🎯 Goals</h4>
+            <p>Set the outcomes you are working toward and track progress against them.</p>
+          </div>
+          <div class="card">
+            <h4>📝 Annual performance</h4>
+            <p>Complete your self-review when your review cycle opens, and set your goals for the next year.</p>
+          </div>
+          <div class="card">
+            <h4>🗣️ 1:1s</h4>
+            <p>Keep a shared, running agenda with your manager between formal reviews.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="getstarted">
+      <div class="section-head">
+        <div class="section-icon">🚀</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow">Section 2</div>
+          <h2>Getting started</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <p class="body-text">You can use TeamFlect in Microsoft Teams, in Outlook, and in a web browser.</p>
+        <figure class="shot">
+          <video controls preload="metadata" style="width:100%;border-radius:8px;" src="teamflect-getting-started.mp4"></video>
+          <figcaption>Getting started: adding TeamFlect to Microsoft Teams and Outlook.</figcaption>
+        </figure>
+        <div class="sub-head" style="margin-top:0;">Getting started</div>
+        <p class="body-text">TeamFlect uses single sign-on with your Microsoft work account. You do not create a separate username or password. Choose one of the two options below.</p>
+        <div class="two-col">
+          <div class="card">
+            <h4>🌐 Option 1: Web browser</h4>
+            <ol class="steps" style="padding-top:6px;">
+              <li><span class="num">1</span><div>Open your browser and go to <a href="https://app.teamflect.com" target="_blank" rel="noopener">app.teamflect.com</a>.</div></li>
+              <li><span class="num">2</span><div>Select <strong>Sign in with Microsoft</strong>.</div></li>
+              <li><span class="num">3</span><div>Use the username and password you use for Microsoft Teams.</div></li>
+            </ol>
+          </div>
+          <div class="card">
+            <h4>💬 Option 2: Microsoft Teams</h4>
+            <ol class="steps" style="padding-top:6px;">
+              <li><span class="num">1</span><div>Open Microsoft Teams, select <span class="path">Apps</span> in the left rail, and search for <strong>TeamFlect</strong>.</div></li>
+              <li><span class="num">2</span><div>Select <strong>Add</strong>, then sign in with your Microsoft work account and password.</div></li>
+              <li><span class="num">3</span><div>Pin TeamFlect to your Teams sidebar for one-click access.</div></li>
+            </ol>
+          </div>
+        </div>
+        <figure class="shot">
+          <img src="qs-page-02.jpg" alt="Quick Start slide showing the web browser sign-in option and the Microsoft Teams App Store option" />
+          <figcaption>Quick Start: sign-in options for the web browser and the Teams App Store.</figcaption>
+        </figure>
+        <div class="callout callout-info">
+          <span class="callout-icon">🔔</span>
+          <div class="callout-body">
+            <strong>Notifications come through Teams</strong>
+            <p>You get a Teams notification when a review cycle opens. Complete your self-assessment by the deadline in that notification.</p>
+          </div>
+        </div>
+        <div class="callout callout-warning">
+          <span class="callout-icon">🔐</span>
+          <div class="callout-body">
+            <strong>Can't sign in?</strong>
+            <p>The sign-in page links to a help article for login trouble. If that doesn't fix it, contact your TeamFlect administrator.</p>
+          </div>
+        </div>
+
+        <div class="sub-head">Use TeamFlect on mobile</div>
+        <figure class="shot">
+          <img src="qs-page-07.jpg" alt="Four phone screens showing Teamflect home, a review, a goal, and 1:1 meetings" />
+          <figcaption>Quick Start: Teamflect on a phone, through the Teams app or the mobile browser.</figcaption>
+        </figure>
+        <div class="two-col" style="margin-top:0;">
+          <div class="card">
+            <h4>📲 Teams mobile app</h4>
+            <p>Install the Microsoft Teams mobile app, then add Teamflect to your navigation bar.</p>
+          </div>
+          <div class="card">
+            <h4>🌍 Mobile browser</h4>
+            <p>Open <a href="https://app.teamflect.com" target="_blank" rel="noopener">app.teamflect.com</a> and sign in. No download is needed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="navsystem">
+      <div class="section-head">
+        <div class="section-icon">🗺️</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow">Section 3</div>
+          <h2>Navigating the TeamFlect System</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="sub-head">Navigate the system</div>
+        <p class="body-text">Use the left menu to move between modules. The home page is your starting point.</p>
+        <p class="body-text">The left menu holds the modules. Select a module to open it. The home page shows your upcoming meetings, your active goals, and your tasks.</p>
+        <figure class="shot">
+          <img src="qs-page-03.jpg" alt="Annotated Teamflect home screen showing the module menu, search, profile, bell, and the What's new and Suggest a feature buttons" />
+          <figcaption>Quick Start: the home screen with the module menu on the left and the profile and settings at the top right.</figcaption>
+        </figure>
+        <div class="table-wrap">
+          <table class="sp-table">
+            <thead><tr><th>Menu item</th><th>Use it to</th><th>ITDP status</th></tr></thead>
+            <tbody>
+              <tr><td><img src="menu-icon-home.png" alt="" style="width:18px;height:18px;vertical-align:middle;margin-right:8px;" /><strong>Home</strong></td><td>See your upcoming meetings, active goals, tasks, and company news.</td><td>In use</td></tr>
+              <tr><td><img src="menu-icon-goals.png" alt="" style="width:18px;height:18px;vertical-align:middle;margin-right:8px;" /><strong>Goals</strong></td><td>Create and update your goals.</td><td>In use</td></tr>
+              <tr><td><img src="menu-icon-meetings.png" alt="" style="width:18px;height:18px;vertical-align:middle;margin-right:8px;" /><strong>Meetings</strong></td><td>Open your 1:1s and recurring meetings.</td><td>In use</td></tr>
+              <tr><td><img src="menu-icon-tasks.png" alt="" style="width:18px;height:18px;vertical-align:middle;margin-right:8px;" /><strong>Tasks</strong></td><td>See tasks linked to your goals.</td><td>In use</td></tr>
+              <tr><td><img src="menu-icon-reviews.png" alt="" style="width:18px;height:18px;vertical-align:middle;margin-right:8px;" /><strong>Reviews</strong></td><td>Find your self-assessment and manager reviews.</td><td>In use</td></tr>
+              <tr><td><img src="menu-icon-surveys.png" alt="" style="width:18px;height:18px;vertical-align:middle;margin-right:8px;" /><strong>Surveys</strong></td><td>Answer the surveys sent to you.</td><td>In use</td></tr>
+              <tr><td><img src="menu-icon-feedback.png" alt="" style="width:18px;height:18px;vertical-align:middle;margin-right:8px;" /><strong>Feedback</strong></td><td>Give or request feedback at any point, not only at review time.</td><td>In use</td></tr>
+              <tr><td><img src="menu-icon-notes.png" alt="" style="width:18px;height:18px;vertical-align:middle;margin-right:8px;" /><strong>Notes</strong></td><td>Keep private notes, or share them in a meeting.</td><td>In use</td></tr>
+              <tr><td><img src="menu-icon-user-search.png" alt="" style="width:18px;height:18px;vertical-align:middle;margin-right:8px;" /><strong>User search</strong></td><td>Find people in your organization.</td><td>In use</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sub-head">Find people and your settings</div>
+        <div class="three-col">
+          <div class="card">
+            <h4>🔍 User Search</h4>
+            <p>Find someone in your organization and open their profile to view their information and feedback.</p>
+          </div>
+          <div class="card">
+            <h4>👤 My Profile</h4>
+            <p>View and update your name, contact details, job title, and email. You can also add files to your profile.</p>
+          </div>
+          <div class="card">
+            <h4>⚙️ My Settings</h4>
+            <p>Set your language, the frequency of your 1:1s, date and time format, and notification preferences.</p>
+          </div>
+        </div>
+        <figure class="shot">
+          <img src="qs-page-04.jpg" alt="User search dialog with suggested contacts" />
+          <figcaption>Quick Start: User Search finds people in your organization. Invite People is an administrator task.</figcaption>
+        </figure>
+        <div class="sub-head">Profile menu</div>
+        <p class="body-text">Select your name or profile picture to open the menu. Options include <span class="path">What's new</span>, <span class="path">Suggest a feature</span>, <span class="path">Contact support</span>, <span class="path">Help center</span>, and <span class="path">Settings &amp; Profile</span>. Some roles also see <span class="path">Switch to demo</span> or <span class="path">Impersonate</span>.</p>
+        <div class="callout callout-info">
+          <span class="callout-icon">🧩</span>
+          <div class="callout-body">
+            <strong>Can't find a setting or feature?</strong>
+            <p>Many options are set for the whole organization. Ask your TeamFlect administrator before assuming a feature is missing.</p>
+          </div>
+        </div>
+        <div class="sub-head">Change your language</div>
+        <div class="callout callout-info">
+          <span class="callout-icon">🌐</span>
+          <div class="callout-body">
+            <strong>Note</strong>
+            <p>You can set your display language under your TeamFlect profile icon, then My settings, then Language. This changes the language of TeamFlect bot messages and emails you receive.</p>
+          </div>
+        </div>
+        <p class="body-text">You can change the language in your own settings. The change applies to the app, Teams bot messages, and emails you receive from TeamFlect.</p>
+        <ol class="steps">
+          <li><span class="num">1</span><div>Select your name and profile picture at the bottom right of the Teamflect app.</div></li>
+          <li><span class="num">2</span><div>Select <span class="path">Settings &amp; Profile</span>, then open the <span class="path">My settings</span> tab.</div></li>
+          <li><span class="num">3</span><div>Open the <span class="path">Language</span> dropdown and choose your language. Menus, labels, and instructions change to match.</div></li>
+        </ol>
+        <figure class="shot">
+          <img src="qs-page-05.jpg" alt="Profile menu and My Settings screen showing the Language dropdown" />
+          <figcaption>Quick Start: the profile menu and the My Settings tab, where the language is set.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="section" id="goals">
+      <div class="section-head">
+        <div class="section-icon">🎯</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow">Section 4</div>
+          <h2>Goals: High-Level Overview</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="sub-head" style="margin-top:0;">How ITDP uses Goals in TeamFlect</div>
+        <p class="body-text">ITDP uses TeamFlect to track and assign goals. Goals are set at two levels: Individual SMART goals and Team goals. Individual goals support a team key result or your role, so the work you track in TeamFlect shows how your goals support the team.</p>
+        <p class="body-text">You also use TeamFlect to reflect on your goals for the current year. Those reflections feed into your annual review, so update your progress throughout the year rather than at the end.</p>
+        <div class="sub-head">Two kinds of goals</div>
+        <div class="two-col">
+          <div class="card">
+            <h4>Individual SMART goals</h4>
+            <ul class="plain-list">
+              <li>Achieved through your own effort.</li>
+              <li>What you deliver and how you work.</li>
+              <li>Support a team key result or your role.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Team goals</h4>
+            <ul class="plain-list">
+              <li>Achieved by collective effort.</li>
+              <li>Results the team works to influence.</li>
+              <li>Each key result has an owner, who guides it but does not own the result alone.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sub-head">Find the Goals module</div>
+        <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+          <ol class="steps" style="flex:1;min-width:260px;">
+            <li><span class="num">1</span><div>Open TeamFlect in Microsoft Teams or your web browser.</div></li>
+            <li><span class="num">2</span><div>Select <span class="path">Goals</span> from the left-hand menu.</div></li>
+            <li><span class="num">3</span><div>Stay on the <span class="path">My goals</span> tab to view and manage your individual goals.</div></li>
+          </ol>
+          <figure class="shot" style="margin:0;width:240px;">
+            <img src="help-goals-sidebar.png" alt="TeamFlect left menu with Goals highlighted" style="width:100%;" />
+            <figcaption>The Goals item in the left menu.</figcaption>
+          </figure>
+        </div>
+        <div class="sub-head">How to create a goal in TeamFlect</div>
+        <ol class="steps">
+          <li><span class="num">1</span><div>Select <strong>New goal</strong> at the top of the page.</div></li>
+          <li><span class="num">2</span><div>Enter a title for your goal.</div></li>
+          <li><span class="num">3</span><div>Add a description that explains what you want to achieve and how you will measure success.</div></li>
+          <li><span class="num">4</span><div>Complete the goal fields listed below. Your organization's settings control which fields appear.</div></li>
+          <li><span class="num">5</span><div>Choose how you will measure progress, then enter the starting value and the target.</div></li>
+          <li><span class="num">6</span><div>Review the goal and select <strong>Create</strong>.</div></li>
+        </ol>
+        <figure class="shot">
+          <img src="help-goals-new-goal-button.png" alt="My goals tab with the New goal button highlighted" />
+          <figcaption>Select New goal at the top right of the My goals tab.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="help-goals-new-goal-form.png" alt="Blank New goal form with the goal title and description fields highlighted" />
+          <figcaption>The New goal form. The title and description fields are highlighted.</figcaption>
+        </figure>
+        <div class="sub-head">Common questions</div>
+        <p class="body-text"><strong>Can I create a goal for someone else?</strong> Managers and other authorized users may be able to create or assign goals, depending on permissions.</p>
+        <p class="body-text"><strong>Can I edit my goal after I create it?</strong> Yes, if you have edit permissions. Open the goal and update its details or progress.</p>
+      </div>
+    </div>
+
+    <div class="section" id="reviews">
+      <div class="section-head">
+        <div class="section-icon">📝</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow">Section 5</div>
+          <h2>Reviews</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="sub-head" style="margin-top:0;">What is performance management?</div>
+        <p class="body-text">Performance management is an ongoing process where you and your manager set clear expectations, share feedback and support, recognize your achievements, and identify opportunities for improvement to help you succeed and contribute to the advancement of organizational goals.</p>
+
+        <div class="sub-head">Built in steps</div>
+        <ol class="steps">
+          <li><span class="num">1</span><div><strong>Current year: Evaluate.</strong> A fair rating for everyone, from different starting points: current-year goals or your role description.</div></li>
+          <li><span class="num">2</span><div><strong>Next year: Set clear goals.</strong> Consistent use of team goals and individual SMART goals, with a mid-year check-in.</div></li>
+          <li><span class="num">3</span><div><strong>Longer term: Build the foundation.</strong> Job levels, salary bands, and career paths.</div></li>
+        </ol>
+
+        <div class="sub-head">Annual Review Cycle</div>
+        <p class="body-text">An annual performance review is a comprehensive assessment of your performance, completed once a year. TeamFlect runs the full review cycle in one place, from your self-review through to finalization.</p>
+        <ul class="plain-list">
+          <li><strong>Holistic view:</strong> The annual review gives a full picture of your performance across the year.</li>
+          <li><strong>Connected to your development:</strong> The review links to your self-development plan, so improvement steps and goals carry forward.</li>
+        </ul>
+        <p class="body-text">Your annual review looks at your current-year results against your goals, and it is where you set your next-year goals. Complete the steps below in order. Your manager and HR handle the steps after your self-review.</p>
+
+        <div class="sub-head">Navigating to your review in TeamFlect</div>
+        <figure class="shot">
+          <video controls preload="metadata" style="width:100%;border-radius:8px;" src="teamflect-reviews-intro-v3.mp4"></video>
+          <figcaption>Reviews in TeamFlect.</figcaption>
+        </figure>
+
+        <div class="sub-head">Complete your self-review</div>
+        <ol class="steps">
+          <li><span class="num">1</span><div><strong>Open the review.</strong> In Teams, open the TeamFlect chat and select <strong>See review</strong> on the New review card. You can also select <strong>Reviews</strong> from the TeamFlect left menu.</div></li>
+          <li><span class="num">2</span><div>On the <strong>Reviews About Me</strong> tab, find your review under <em>Waiting for signature</em> and select <strong>Sign review</strong>.</div></li>
+          <li><span class="num">3</span><div>Read the review header. It lists the reviewer, the review period, the date your self-review was submitted, the review due date, and the finalize date.</div></li>
+          <li><span class="num">4</span><div>Work through each section. Your answers appear beside your reviewer's answers for each question, and each rating question shows both ratings.</div></li>
+          <li><span class="num">5</span><div>The review stays locked until you sign it. Select <strong>Sign now</strong> to add your signature.</div></li>
+        </ol>
+
+        <div class="sub-head">Rating scale for each goal</div>
+        <div class="table-wrap">
+          <table class="sp-table">
+            <thead><tr><th style="width:30%;">Label</th><th>What it means</th></tr></thead>
+            <tbody>
+              <tr><td>Outstanding Contribution</td><td>Consistently performs above expectations, with impact beyond your role, sustained over the year.</td></tr>
+              <tr><td>Successful Performance</td><td>Consistently meets expectations and delivers on your responsibilities.</td></tr>
+              <tr><td>Partially Meets Expectations</td><td>Meets some, but not all, expectations. Clear areas to improve.</td></tr>
+              <tr><td>Unsatisfactory Performance</td><td>Generally applies to staff on a performance improvement plan or with a formal written warning.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-info">
+          <span class="callout-icon">🎓</span>
+          <div class="callout-body">
+            <strong>Need help?</strong>
+            <p>Contact HR if you cannot find your review, cannot complete a required field, or have questions about ratings or calibration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="oneonones">
+      <div class="section-head">
+        <div class="section-icon">🗣️</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow">Section 6</div>
+          <h2>Meetings and 1:1s</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <p class="body-text">Manager-employee 1-on-1 meetings are essential for building strong relationships, providing feedback, and setting clear objectives. TeamFlect offers a dedicated space for these interactions.</p>
+        <p class="body-text">Your 1:1 page is an agenda that you and your manager share. You can open it three ways: in TeamFlect, from the Teams calendar invite, or from the TeamFlect panel during the meeting. All three take you to the same page.</p>
+        <div class="sub-head">How to get there</div>
+        <ol class="steps">
+          <li><span class="num">1</span><div>Open the 1:1 from the Meetings menu, or join from the Teams calendar invite.</div></li>
+          <li><span class="num">2</span><div>Add your talking points before the meeting. Your manager's items appear on the same page.</div></li>
+          <li><span class="num">3</span><div>Pull an open goal into the conversation for a live status check instead of updating it separately.</div></li>
+          <li><span class="num">4</span><div>Assign action items to either of you as they come up.</div></li>
+        </ol>
+        <p class="body-text">Set how often you meet under <span class="path">My Settings</span>. Your administrator sets the maximum frequency for your company.</p>
+        <div class="sub-head">Monthly team check-in</div>
+        <p class="body-text">A monthly team check-in is a meeting where your team reviews progress, aligns on goals, discusses challenges, and plans the month ahead.</p>
+        <ol class="steps">
+          <li><span class="num">1</span><div>Schedule the meeting in TeamFlect and invite your team members.</div></li>
+          <li><span class="num">2</span><div>Create an agenda with talking points, goals, and action items.</div></li>
+          <li><span class="num">3</span><div>During the meeting, use TeamFlect's integrated features for real-time collaboration.</div></li>
+          <li><span class="num">4</span><div>Share notes, attachments, and resources.</div></li>
+          <li><span class="num">5</span><div>Track task and goal progress during the meeting.</div></li>
+          <li><span class="num">6</span><div>Summarize the key takeaways in the meeting notes and assign follow-up tasks.</div></li>
+        </ol>
+        <div class="three-col">
+          <div class="card">
+            <h4>Alignment</h4>
+            <p>Team members stay aligned on goals and priorities.</p>
+          </div>
+          <div class="card">
+            <h4>Efficiency</h4>
+            <p>Collaborative meeting tools help the team get more done.</p>
+          </div>
+          <div class="card">
+            <h4>Accountability</h4>
+            <p>Meeting notes and action items keep everyone accountable.</p>
+          </div>
+        </div>
+        <div class="sub-head">Using TeamFlect for 1:1s</div>
+        <p class="body-text">A 1:1 tool streamlines your process and builds useful insight over time. TeamFlect keeps your 1:1 agenda, progress, and goals in one place, and you can open it inside a Microsoft Teams meeting.</p>
+        <figure class="shot" style="border:none;background:none;border-radius:0;overflow:visible;margin:16px 0 22px;">
+          <img src="one-on-one-teams-panel-v2.png" alt="TeamFlect panel open inside a Microsoft Teams 1:1 meeting, showing the goal progress overview" style="display:block;margin:0 auto;max-width:460px;width:100%;" />
+        </figure>
+        <p class="body-text">In TeamFlect, you can:</p>
+        <ul class="plain-list">
+          <li><strong>Schedule and get reminders</strong> for your 1:1s automatically.</li>
+          <li><strong>Build agendas from templates</strong> with recurring talking points and check-in questions.</li>
+          <li><strong>Track progress over time</strong> so you can see how your work is moving between meetings.</li>
+          <li><strong>Bring goals into your Teams meetings</strong> to review them live.</li>
+          <li><strong>Connect your 1:1 notes to your performance review</strong>, since the same platform runs the review cycle.</li>
+        </ul>
+
+        <div class="sub-head">Open TeamFlect in a Teams meeting</div>
+        <ol class="steps">
+          <li><span class="num">1</span><div>In your Teams meeting, find <strong>Apps</strong> in the meeting interface, search for <strong>Teamflect</strong>, and select it to add.</div></li>
+          <li><span class="num">2</span><div>Select the Teamflect icon in the meeting controls. It opens in a panel on the right.</div></li>
+          <li><span class="num">3</span><div>In the panel, view the agenda and talking points, take shared or private notes, add tasks, and present your goals and reviews.</div></li>
+        </ol>
+        <figure class="shot">
+          <img src="qs-page-06.jpg" alt="Teams meeting toolbar with the Teamflect panel open on the right, showing goal progress" />
+          <figcaption>Quick Start: the Teamflect panel open during a Teams meeting.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="section" id="help">
+      <div class="section-head">
+        <div class="section-icon">🎓</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow">Section 7</div>
+          <h2>Get Help</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <p class="body-text">Click the <span class="path">chat bubble</span> icon at the bottom right of the screen. It opens the Help menu with three options:</p>
+        <div class="three-col">
+          <div class="card">
+            <h4>🔎 Search for help</h4>
+            <p>Browse help articles for common solutions.</p>
+          </div>
+          <div class="card">
+            <h4>💡 Suggest a feature</h4>
+            <p>Share feedback or suggest improvements.</p>
+          </div>
+          <div class="card">
+            <h4>✉️ Send us a message</h4>
+            <p>Chat with the TeamFlect team or create a ticket. Choose <em>I want to report an issue</em> for a problem, or <em>I have another question</em> for general inquiries.</p>
+          </div>
+        </div>
+        <figure class="shot">
+          <img src="qs-page-08.jpg" alt="Help bubble panel with Send us a message, Help Us Improve the Product, and Search for Help options" />
+          <figcaption>Quick Start: the Help menu opened from the chat bubble.</figcaption>
+        </figure>
+        <p class="body-text">For step-by-step articles, select <span class="path">Help center</span> from the profile menu. Your administrator can also answer questions about settings and feature access.</p>
+        <p class="source-line">Full steps for each option are in the Get Help guide.</p>
+      </div>
+    </div>
+
+    <div class="section" id="resources">
+      <div class="section-head">
+        <div class="section-icon">📚</div>
+        <div class="section-head-text">
+          <div class="section-eyebrow">Section 8</div>
+          <h2>Resources</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <ul class="plain-list">
+          <li><a href="https://teamflect.com/product-webinar" target="_blank" rel="noopener">Live Weekly End-User Training Webinar</a>, a live session on using TeamFlect.</li>
+          <li><a href="https://help.teamflect.com" target="_blank" rel="noopener">TeamFlect Help Center</a>, with module help articles, tutorial videos, and troubleshooting guides</li>
+        </ul>
+        <figure class="shot">
+          <img src="qs-page-09.jpg" alt="TeamFlect Help Center home page with search and article categories" />
+          <figcaption>Quick Start: the Help Center, reached from the profile menu.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="page-footer">ITDP Human Resources Hub &nbsp;·&nbsp; TeamFlect Employee Guide &nbsp;·&nbsp; Draft, November 2026</div>
+
+<script>
+  (function () {
+    const sections = Array.from(document.querySelectorAll('.section[id]'));
+    const links = Array.from(document.querySelectorAll('.page-nav a'));
+    function setActive(id) {
+      links.forEach(l => l.style.cssText = '');
+      const a = document.querySelector('.page-nav a[href="#' + id + '"]');
+      if (a) { a.style.background = '#e7f5f2'; a.style.borderLeftColor = '#3fb8a6'; a.style.color = '#0a4a42'; }
+    }
+    function update() {
+      const line = window.innerHeight * 0.35;
+      let current = sections[0];
+      sections.forEach(sec => {
+        if (sec.getBoundingClientRect().top <= line) current = sec;
+      });
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        current = sections[sections.length - 1];
+      }
+      if (current) setActive(current.id);
+    }
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => { update(); ticking = false; });
+        ticking = true;
+      }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
+</body>
+</html>
